@@ -40,7 +40,7 @@ public class UkrNetParsing implements Parsable {
     @Override
     public void printNewItems() {
         for (int i=0; i<3; i++) {
-            System.out.println(i + ". " + mainNewsTextMap.get(i));
+            System.out.println(i+1 + ". " + mainNewsTextMap.get(i));
         }
     }
 }
