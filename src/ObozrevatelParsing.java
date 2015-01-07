@@ -36,11 +36,6 @@ public class ObozrevatelParsing implements Parsable {
             System.out.println("Can't connect to the URL. Sorry!");
         }
 
-//        if (mainNewsTextSet.isEmpty())
-//        {return false;}
-//        else
-//        {return true;}
-
         return mainNewsTextSet;
     }
 
