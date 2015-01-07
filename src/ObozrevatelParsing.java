@@ -3,6 +3,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -10,14 +11,10 @@ import java.util.Set;
 /**
  * Created by paulvoropaiev on 1/4/15.
  */
-public class UkrNetParsing implements Parsable {
-
-    public UkrNetParsing(/*int x*/) {
-//        parse(x);
-    }
+public class ObozrevatelParsing implements Parsable {
 
     Set<String> mainNewsTextSet = new HashSet<>();
-    String urlToParse = "https://www.ukr.net/";
+    String urlToParse = "http://obozrevatel.com/author/slava-rabinovich.htm";
     int newsNumber;
 
 
@@ -30,8 +27,8 @@ public class UkrNetParsing implements Parsable {
 
         try {
             doc = Jsoup.connect(urlToParse).get();
-            elements = doc.select("div > h3 > a");
-            for (int i=3; i<8/*newsNumber*/; i++) {
+            elements = doc.select("div.ttl");
+            for (int i=1; i<=newsNumber; i++) {
                 mainNewsTextSet.add(elements.get(i).text());
             }
         } catch (IOException e) {
@@ -40,18 +37,17 @@ public class UkrNetParsing implements Parsable {
         }
 
 //        if (mainNewsTextSet.isEmpty())
-//            {return false;}
+//        {return false;}
 //        else
-//            {return true;}
+//        {return true;}
 
         return mainNewsTextSet;
-
     }
 
     @Override
     public void printNewItems() {
-        for (String s : mainNewsTextSet) {
-            System.out.println(s);
+        for (String v : mainNewsTextSet) {
+            System.out.println(v);
         }
     }
 }
