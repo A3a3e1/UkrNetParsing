@@ -10,7 +10,7 @@ public class MailService {
 
     final String username = "la3a3el@gmail.com";
     //WRITE HERE CORRECT REAL PASSWORD FROM GMAIL ACCOUNT!!!
-    final String password = "---------WRITE__PASSWORD___HERE-----------";
+    final String password = "tcyt9ucg";
 
     protected void sendEmail(String text) {
 

@@ -48,20 +48,21 @@ public class UpdateService implements Runnable {
 
             System.out.println("-----------------------");
 
-            try {
-                Thread.sleep(300000);
-                if (isChanged) {
-                    mailService.sendEmail(stringToSend);
-                    stringToSend = "";
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            if (isChanged) {
+                mailService.sendEmail(stringToSend);
+                stringToSend = "";
             }
-
+            
             updateSet.clear();
             newsSetSource.clear();
             newsSetSource.addAll(newsSetTemp);
             isChanged = false;
+
+            try {
+                Thread.sleep(30000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
